@@ -1,62 +1,75 @@
 const painPoints = [
   {
-    icon: "⚠️",
-    title: "Hallucinations",
+    image: "/images/problem-1.jpg",
+    title: "You set the rules",
     description:
-      "Generic AI makes up information that doesn't exist. It confidently answers with facts it invented, misleading your users.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
   },
   {
-    icon: "🔓",
-    title: "No control",
+    image: "/images/problem-2.jpg",
+    title: "AI Assistant handle the content",
     description:
-      "You can't define what the AI knows or restrict what it says. It pulls from the entire internet — including competitors and outdated data.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
   },
   {
-    icon: "🎭",
-    title: "Off-brand answers",
+    image: "/images/problem-3.jpg",
+    title: "Customers get accurate and on-brand answers",
     description:
-      "Responses don't match your tone, terminology, or facts. The assistant says things you'd never say to a customer.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
   },
 ];
 
 export default function Problem() {
   return (
-    <section className="section-padding bg-gray-50">
+    <section data-navbar-theme="light" className="relative py-28 md:py-40 px-6">
       <div className="container-max">
         {/* Section header */}
-        <div className="max-w-2xl mb-14">
-          <span
-            className="text-xs font-semibold uppercase tracking-widest mb-4 block"
-            style={{ color: "#577F4F" }}
+        <div className="max-w-2xl mx-auto text-center mb-14">
+          <h2
+            className="text-6xl font-light mb-20 block tracking-tight"
+            style={{ color: "#000" }}
           >
-            The problem
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
-            AI answers are often unreliable.
+            Your smart conversational AI Assistant
           </h2>
-          <p className="text-gray-500 text-lg leading-relaxed">
-            Most AI chatbots answer using general internet knowledge. They
-            weren't built for your specific content — and it shows.
-          </p>
+          <p className="text-2xl font-extralight mb-20 block tracking-tight"
+            style={{ color: "#000" }}
+          >Powered by large langague models, understands your visitors and customers, and reply them with accuracy and empathy.</p>
         </div>
 
-        {/* Pain point cards */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {painPoints.map((point) => (
-            <div
-              key={point.title}
-              className="bg-white rounded-2xl p-6 shadow-sm"
-              style={{ borderLeft: "4px solid #f59e0b" }}
-            >
-              <span className="text-2xl mb-4 block">{point.icon}</span>
-              <h3 className="font-semibold text-gray-900 text-lg mb-2">
-                {point.title}
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
-                {point.description}
-              </p>
-            </div>
-          ))}
+        {/* Bento grid */}
+        <div className="grid grid-cols-3 gap-4" style={{ gridAutoRows: "400px" }}>
+
+          {/* Row 1: img1 (wide) + text1 */}
+          <div className="col-span-2 rounded-4xl overflow-hidden" style={{ backgroundColor: "#F2F1E8", minHeight: "200px" }}>
+            <img src={painPoints[0].image} alt={painPoints[0].title} className="w-full h-full object-cover" />
+          </div>
+          <div className="col-span-1 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#D6EFD2" }}>
+            <h3 className="font-light text-[#2C4D26] text-4xl/9 mb-2">{painPoints[0].title}</h3>
+            <p className="text-gray-900 text-lg/6">{painPoints[0].description}</p>
+          </div>
+
+          {/* Row 2: text2 + img2 (wide) */}
+          <div className="col-span-1 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#F9E798" }}>
+            <h3 className="font-light text-[#302807] text-4xl/9 mb-2">{painPoints[1].title}</h3>
+            <p className="text-gray-900 text-lg/6">{painPoints[1].description}</p>
+          </div>
+          <div className="col-span-2 rounded-4xl overflow-hidden" style={{ backgroundColor: "#F2F1E8", minHeight: "200px" }}>
+            <img src={painPoints[1].image} alt={painPoints[1].title} className="w-full h-full object-cover" />
+          </div>
+
+          {/* Row 3: img3 + text3 (wide) */}
+          <div className="col-span-1 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#CEF3EF" }}>
+            <h3 className="font-light text-[#1D4742] text-4xl/9 mb-2">{painPoints[2].title}</h3>
+            <p className="text-gray-900 text-lg/6">{painPoints[2].description}</p>
+          </div>
+          <div className="col-span-1 rounded-4xl overflow-hidden" style={{ backgroundColor: "#F2F1E8", minHeight: "200px" }}>
+            <img src={painPoints[2].image} alt={painPoints[2].title} className="w-full h-full object-cover" />
+          </div>
+          <div className="col-span-1 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#EDEAD6" }}>
+            <h3 className="font-light text-[#575440] text-4xl/9 mb-2">{painPoints[2].title}</h3>
+            <p className="text-gray-900 text-lg/6">{painPoints[2].description}</p>
+          </div>
+
         </div>
       </div>
     </section>

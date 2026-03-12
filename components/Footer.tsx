@@ -18,7 +18,7 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400">
+    <footer data-navbar-theme="dark" className="bg-gray-900 text-gray-400">
       <div className="container-max px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           {/* Brand column */}

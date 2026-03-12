@@ -3,13 +3,29 @@
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const update = () => {
+      const scrollY = window.scrollY;
+      setHasScrolled(scrollY > 20);
+
+      // Find the section currently covering the top of the page
+      const sections = document.querySelectorAll<HTMLElement>("[data-navbar-theme]");
+      let currentTheme = "dark";
+      sections.forEach((section) => {
+        if (section.offsetTop <= scrollY + 80) {
+          currentTheme = section.dataset.navbarTheme ?? "dark";
+        }
+      });
+      setIsDark(currentTheme === "dark");
+    };
+
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => window.removeEventListener("scroll", update);
   }, []);
 
   const links = [
@@ -18,27 +34,42 @@ export default function Navbar() {
     { label: "Use Cases", href: "#use-cases" },
   ];
 
+  // Derived colors based on section theme
+  const textColor = isDark ? "#ffffff" : "#111111";
+  const mutedColor = isDark ? "rgba(255,255,255,0.75)" : "#4b5563";
+  const hoverColor = isDark ? "#ffffff" : "#577F4F";
+  const btnBg = isDark ? "#ffffff" : "#111111";
+  const btnColor = isDark ? "#111111" : "#ffffff";
+  const btnHoverBg = isDark ? "#F9E798" : "#1f2937";
+
+  // Navbar background: glass when scrolled, themed to section
+  const navBg = hasScrolled
+    ? isDark
+      ? "rgba(0,0,0,0.6)"
+      : "rgba(255,255,255,0.85)"
+    : "transparent";
+  const navBorder = hasScrolled
+    ? isDark
+      ? "1px solid rgba(255,255,255,0.1)"
+      : "1px solid rgba(0,0,0,0.06)"
+    : "none";
+
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={
-        scrolled
-          ? {
-              backgroundColor: "rgba(255,255,255,0.8)",
-              backdropFilter: "blur(12px)",
-              WebkitBackdropFilter: "blur(12px)",
-              borderBottom: "1px solid rgba(0,0,0,0.06)",
-              boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
-            }
-          : {}
-      }
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      style={{
+        backgroundColor: navBg,
+        backdropFilter: hasScrolled ? "blur(16px)" : "none",
+        WebkitBackdropFilter: hasScrolled ? "blur(16px)" : "none",
+        borderBottom: navBorder,
+      }}
     >
       <div className="container-max px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a
           href="#"
-          className="flex items-center gap-2 font-bold text-xl"
-          style={{ color: scrolled ? "#577F4F" : "#ffffff" }}
+          className="flex items-center gap-2 font-bold text-xl transition-colors duration-500"
+          style={{ color: textColor }}
         >
           <LeafIcon />
           Bentevi
@@ -50,18 +81,10 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium transition-colors"
-              style={{ color: scrolled ? "#4b5563" : "rgba(255,255,255,0.85)" }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = scrolled
-                  ? "#577F4F"
-                  : "#ffffff")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = scrolled
-                  ? "#4b5563"
-                  : "rgba(255,255,255,0.85)")
-              }
+              className="text-sm font-medium transition-colors duration-500"
+              style={{ color: mutedColor }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = mutedColor)}
             >
               {l.label}
             </a>
@@ -72,22 +95,18 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="#waitlist"
-            className="hidden md:inline-flex items-center justify-center h-9 px-5 rounded-full text-sm font-semibold text-white transition-all"
-            style={{ backgroundColor: "#577F4F" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "#3d5c37")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "#577F4F")
-            }
+            className="hidden md:inline-flex items-center justify-center h-9 px-5 rounded-full text-sm font-semibold transition-all duration-500"
+            style={{ backgroundColor: btnBg, color: btnColor }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = btnHoverBg; }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = btnBg; }}
           >
             Get Early Access
           </a>
 
           {/* Hamburger */}
           <button
-            className="md:hidden p-2 rounded-md transition-colors"
-            style={{ color: scrolled ? "#4b5563" : "#ffffff" }}
+            className="md:hidden p-2 rounded-md transition-colors duration-500"
+            style={{ color: textColor }}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -138,12 +157,16 @@ function LeafIcon() {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.8"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
-      <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+      <path d="M16 7h.01" />
+      <path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20" />
+      <path d="m20 7 2 .5-2 .5" />
+      <path d="M10 18v3" />
+      <path d="M14 17.75V21" />
+      <path d="M7 18a6 6 0 0 0 3.84-10.61" />
     </svg>
   );
 }

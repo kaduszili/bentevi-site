@@ -25,42 +25,55 @@ export default function Waitlist() {
   return (
     <section
       id="waitlist"
-      className="section-padding"
+      data-navbar-theme="dark"
+      className="relative py-28 md:py-72 px-6"
       style={{
-        background:
-          "linear-gradient(135deg, #0f1f0d 0%, #1a2e17 40%, #2d4a26 100%)",
+        backgroundImage: "url('/images/waitlist-v3.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: " center",
+        backgroundRepeat: "no-repeat",
+        backgroundColor: "#000000",
       }}
     >
+      {/* Soft fade-in from white above */}
+      <div
+        className="absolute inset-x-0 top-0 pointer-events-none"
+        style={{
+          height: "360px",
+          background: "linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0) 100%)",
+        }}
+      />
+
       <div className="container-max">
         <div className="max-w-xl mx-auto text-center">
           {/* Badge */}
           <span
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide text-white uppercase mb-8"
             style={{
-              backgroundColor: "rgba(255,255,255,0.1)",
-              border: "1px solid rgba(255,255,255,0.2)",
+              backgroundColor: "rgba(0,0,0,0.2)",
+              border: "1px solid rgba(0,0,0,0.1)",
             }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
             Early Access
           </span>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+          <h2 className="text-3xl md:text-6xl/13 font-bold text-black mb-4">
             Be the first to know when we launch.
           </h2>
-          <p className="text-white/65 text-lg leading-relaxed mb-10">
+          <p className="text-black/80 text-xl/7 font-extralight mb-10">
             Join the waitlist and get early access to Bentevi. No spam — just
             the launch announcement when we're ready.
           </p>
 
           {/* Form card */}
           <div
-            className="rounded-2xl p-7 text-left"
+            className="rounded-4xl p-7 text-left max-w-4xs mx-auto"
             style={{
-              backgroundColor: "rgba(255,255,255,0.08)",
+              backgroundColor: "rgba(0,0,0,0.4)",
               backdropFilter: "blur(12px)",
               WebkitBackdropFilter: "blur(12px)",
-              border: "1px solid rgba(255,255,255,0.15)",
+              border: "1px solid rgba(255,255,255,0.2)",
             }}
           >
             {submitted ? (
@@ -73,7 +86,7 @@ export default function Waitlist() {
                     htmlFor="email"
                     className="text-sm font-semibold text-white/80"
                   >
-                    Email address <span className="text-white/40">*</span>
+                    Email address <span className="text-white/80">*</span>
                   </label>
                   <input
                     id="email"
@@ -82,9 +95,9 @@ export default function Waitlist() {
                     placeholder="you@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full h-11 px-4 rounded-xl text-sm outline-none transition-all"
+                    className="w-full h-14 px-4 rounded-2xl text-sm outline-none transition-all"
                     style={{
-                      backgroundColor: "rgba(255,255,255,0.1)",
+                      backgroundColor: "rgba(0,0,0,0.2)",
                       border: "1px solid rgba(255,255,255,0.2)",
                       color: "white",
                     }}
@@ -104,7 +117,7 @@ export default function Waitlist() {
                     className="text-sm font-semibold text-white/80"
                   >
                     Your website{" "}
-                    <span className="text-white/40 font-normal">
+                    <span className="text-white/60 font-normal">
                       (optional)
                     </span>
                   </label>
@@ -114,9 +127,9 @@ export default function Waitlist() {
                     placeholder="https://yourwebsite.com"
                     value={website}
                     onChange={(e) => setWebsite(e.target.value)}
-                    className="w-full h-11 px-4 rounded-xl text-sm outline-none transition-all"
+                    className="w-full h-14 px-4 rounded-2xl text-sm outline-none transition-all"
                     style={{
-                      backgroundColor: "rgba(255,255,255,0.1)",
+                      backgroundColor: "rgba(0,0,0,0.2)",
                       border: "1px solid rgba(255,255,255,0.2)",
                       color: "white",
                     }}
@@ -137,7 +150,7 @@ export default function Waitlist() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full h-12 rounded-xl text-base font-semibold text-white transition-all mt-1 flex items-center justify-center gap-2 disabled:opacity-70"
+                  className="w-full h-12 rounded-2xl text-base font-semibold text-white transition-all mt-1 flex items-center justify-center gap-2 disabled:opacity-70"
                   style={{ backgroundColor: "#577F4F" }}
                   onMouseEnter={(e) => {
                     if (!loading)
@@ -164,7 +177,7 @@ export default function Waitlist() {
 
           {/* Social proof */}
           {!submitted && (
-            <p className="text-white/40 text-sm mt-6">
+            <p className="text-white/90 text-sm mt-6">
               120+ people already on the waitlist
             </p>
           )}

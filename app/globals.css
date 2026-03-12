@@ -5,7 +5,7 @@
   --color-brand-dark: #3d5c37;
   --color-brand-light: #6fa364;
   --color-brand-muted: #e8f0e6;
-  --font-sans: var(--font-nunito-sans);
+  --font-sans: var(--font-dm-sans);
 }
 
 :root {
@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  font-family: var(--font-nunito-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-dm-sans), Arial, Helvetica, sans-serif;
   color: #1f2937;
   background: #ffffff;
   -webkit-font-smoothing: antialiased;
@@ -33,16 +33,16 @@ body {
 @layer utilities {
   .glass {
     background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   }
 
   .glass-dark {
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
@@ -80,6 +80,20 @@ body {
 }
 .btn-brand:hover {
   background-color: #3d5c37;
+}
+
+.btn-white-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #1f2937;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: background-color 0.15s;
+}
+.btn-white-hero:hover {
+  background-color: #F9E798;
 }
 
 .btn-outline-hero {

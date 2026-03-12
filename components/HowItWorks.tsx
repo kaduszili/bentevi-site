@@ -1,69 +1,31 @@
 const steps = [
   {
     number: "1",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-        <line x1="12" y1="18" x2="12" y2="12" />
-        <line x1="9" y1="15" x2="15" y2="15" />
-      </svg>
-    ),
+    image: "/images/how-1.jpg",
     title: "Add your knowledge",
     description:
       "Upload documents, paste text, or connect your help center. Bentevi accepts PDFs, Word files, Markdown, and plain text.",
   },
   {
     number: "2",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="3" />
-        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M12 2a10 10 0 0 1 7.07 2.93" />
-        <path d="M4.93 19.07a10 10 0 0 1 0-14.14M12 22a10 10 0 0 1-7.07-2.93" />
-      </svg>
-    ),
-    title: "Train your assistant",
+    image: "/images/how-2.jpg",
+    title: "Customize your assistant",
     description:
       "Bentevi indexes your information and builds a searchable knowledge base. Your assistant learns only what you provide.",
   },
   {
     number: "3",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
+    image: "/images/how-3.jpg",
     title: "Embed on your site",
     description:
       "Add one line of code to your website or internal tool. Your AI assistant is live and ready to answer questions.",
+  },
+  {
+    number: "4",
+    image: "/images/how-4.jpg",
+    title: "Watch it answer",
+    description:
+      "Your visitors get instant, accurate answers sourced entirely from your content — no hallucinations, no off-topic replies.",
   },
 ];
 
@@ -71,62 +33,94 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="section-padding"
-      style={{ backgroundColor: "#f4f8f3" }}
+      data-navbar-theme="dark"
+      className="py-28 md:py-38 px-6 relative"
+      style={{ backgroundColor: "#111" }}
     >
-      <div className="container-max">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/solution-v8.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "top center",
+          backgroundRepeat: "no-repeat",
+          opacity: 1,
+        }}
+      />
+      <div className="container-max mx-auto relative z-10">
         {/* Section header */}
-        <div className="max-w-2xl mb-14">
-          <span
-            className="text-xs font-semibold uppercase tracking-widest mb-4 block"
-            style={{ color: "#577F4F" }}
-          >
+        <div className="max-w-2xl mb-16 mx-auto">
+          <h2 className="text-3xl md:text-6xl text-center font-light text-white leading-tight">
             How it works
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-            Get started in 3 simple steps.
           </h2>
         </div>
 
-        {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-8 relative">
-          {/* Connector line (desktop only) */}
+        {/* Alternating timeline */}
+        <div className="relative">
+          {/* Center vertical line */}
           <div
-            className="hidden md:block absolute top-10 left-[calc(33%+1rem)] right-[calc(33%+1rem)]"
-            style={{ borderTop: "2px dashed #c4d9be", zIndex: 0 }}
+            className="absolute left-1/2 top-0 bottom-0 w-0.75 -translate-x-1/2"
+            style={{ backgroundColor: "rgba(255,255,255,0.2)" }}
           />
 
-          {steps.map((step) => (
-            <div key={step.number} className="relative">
-              <div className="glass rounded-2xl p-7 h-full relative z-10">
-                {/* Number badge */}
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg mb-5"
-                  style={{ backgroundColor: "#577F4F" }}
-                >
-                  {step.number}
-                </div>
+          <div className="flex flex-col gap-0">
+            {steps.map((step, idx) => {
+              const isLeft = idx % 2 === 0;
+              return (
+                <div key={step.number} className="relative flex items-center gap-0">
+                  {/* Left slot */}
+                  <div className="w-1/2 pr-10 flex justify-end">
+                    {isLeft ? (
+                      <div className="rounded-4xl overflow-hidden flex flex-col w-full max-w-sm pb-2"  style={{
+              backgroundColor: "rgba(255,255,255,0.1)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              border: "1px solid rgba(255,255,255,0.3)",
+            }}>
+                        <div className="p-5 w-full h-128 overflow-hidde">
+                          <img src={step.image} alt={step.title} className="w-full h-full object-cover rounded-2xl" />
+                        </div>
+                        <div className="p-5">
+                          <h3 className="text-2xl font-light text-white mb-4">{step.title}</h3>
+                          <p className="text-white/80 text-lg/6">{step.description}</p>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
 
-                {/* Icon */}
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                  style={{
-                    backgroundColor: "#e8f0e6",
-                    color: "#577F4F",
-                  }}
-                >
-                  {step.icon}
-                </div>
+                  {/* Center badge */}
+                  <div className="absolute left-1/2 -translate-x-1/2 z-10">
+                    <div
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-black font-bold text-base ring-4 ring-white/40"
+                      style={{ backgroundColor: "#ffffff" }}
+                    >
+                      {step.number}
+                    </div>
+                  </div>
 
-                <h3 className="font-bold text-gray-900 text-lg mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            </div>
-          ))}
+                  {/* Right slot */}
+                  <div className="w-1/2 pl-10 flex justify-start">
+                    {!isLeft ? (
+                      <div className="rounded-4xl overflow-hidden flex flex-col w-full max-w-sm pb-2"  style={{
+              backgroundColor: "rgba(255,255,255,0.1)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              border: "1px solid rgba(255,255,255,0.3)",
+            }}>
+                        <div className="p-5 w-full h-128 overflow-hidden">
+                          <img src={step.image} alt={step.title} className="w-full h-full object-cover rounded-2xl" />
+                        </div>
+                        <div className="p-5">
+                          <h3 className="text-2xl font-light text-white mb-4">{step.title}</h3>
+                          <p className="text-white/60 text-lg/6">{step.description}</p>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
