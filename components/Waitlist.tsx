@@ -14,11 +14,30 @@ export default function Waitlist() {
     setError("");
     setLoading(true);
 
-    // V1: Simulate async submission, log to console
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    console.log("Bentevi waitlist submission:", { email, website: website || null });
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, website: website || null }),
+      });
 
-    setSubmitted(true);
+      const data = await res.json();
+
+      if (!res.ok) {
+        if (data.error === "already_subscribed") {
+          setError("You're already on the list!");
+        } else {
+          setError("Something went wrong. Please try again.");
+        }
+        setLoading(false);
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    }
+
     setLoading(false);
   };
 
