@@ -29,7 +29,7 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { label: "How it Works", href: "#how-it-works" },
+    { label: "How it Works", href: "#value-proposition" },
     { label: "Features", href: "#features" },
     { label: "Use Cases", href: "#use-cases" },
   ];

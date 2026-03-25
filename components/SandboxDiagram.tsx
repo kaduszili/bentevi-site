@@ -85,14 +85,14 @@ export default function SandboxDiagram() {
           Your content
         </p>
         <div className="flex flex-wrap gap-2 mb-2">
-          {["PDF docs", "Help center", "FAQ pages", "Text files"].map((t) => (
+          {["PDF docs", "Articles", "FAQ pages", "Text files"].map((t) => (
             <span key={t} className="text-xs font-medium px-2.5 py-1 rounded-full bg-white text-gray-600" style={{ border: "1px solid #c4d9be" }}>
               {t}
             </span>
           ))}
         </div>
         <div className="flex flex-wrap gap-2">
-          {["Pages", "Product specs", "Brand guideline"].map((t) => (
+          {["Pages", "Product specs", "Internal docs"].map((t) => (
             <span key={t} className="text-xs font-medium px-2.5 py-1 rounded-full bg-white text-gray-600" style={{ border: "1px solid #c4d9be" }}>
               {t}
             </span>
@@ -112,12 +112,8 @@ export default function SandboxDiagram() {
       <div className="relative rounded-full p-5 text-center w-48 z-10" style={{ backgroundColor: "#000" }}>
         <div className="flex items-center justify-center gap-2 mb-2">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M16 7h.01" />
-            <path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20" />
-            <path d="m20 7 2 .5-2 .5" />
-            <path d="M10 18v3" />
-            <path d="M14 17.75V21" />
-            <path d="M7 18a6 6 0 0 0 3.84-10.61" />
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
           <span className="text-white font-bold text-base">Bentevi</span>
         </div>

@@ -2,25 +2,23 @@ import SandboxDiagram from "./SandboxDiagram";
 
 const proofPoints = [
   "Answers come only from the content you upload or connect",
-  "Never pulls from the internet or external sources",
-  "You control what the assistant knows — and what it doesn't",
-  "Uncertain questions are flagged instead of guessed",
+  "It does not search the internet",
+  "You decide what the assistant knows",
+  "If the answer is missing, the assistant says it doesn’t know",
 ];
 
-export default function Solution() {
+export default function YourKnowledge() {
   return (
     <section
       data-navbar-theme="light"
-      className="py-28 md:py-60 px-6"
-      style={{
-        backgroundImage: "url('/images/bg-solution.avif')",
-        backgroundSize: "cover",
-        backgroundPosition: "center bottom",
-        backgroundRepeat: "no-repeat",
-        backgroundColor: "#ffffff",
-      }}
+      className="relative py-28 md:py-60 px-6"
+      style={{ backgroundColor: "#ffffff" }}
     >
-      <div className="container-max">
+      {/* Background image at 0.5 opacity */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+      />
+      <div className="container-max relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left — copy */}
           <div className="flex flex-col gap-6">
