@@ -21,14 +21,14 @@ export default function Solution() {
       }}
     >
       <div className="container-max">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Left — copy */}
           <div className="flex flex-col gap-6">
             <h2 className="text-3xl md:text-6xl/15 font-light text-gray-900 tracking-tight">
               Ready from a simple welcome message to optimized sales.
             </h2>
-            <p className="text-gray-600 font-extralight text-2xl/8">
-              Bentevi runs inside a sealed knowledge base. The assistant answers only from the content you provide.
+            <p className="text-gray-600 font-extralight text-lg/7 md:text-2xl/8">
+              Bentevi runs inside a sealed knowledge base with live connector defined by you. The assistant answers only from the content you provide.
             </p>
             <ul className="flex flex-col gap-3 mt-2">
               {proofPoints.map((point) => (

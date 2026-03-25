@@ -90,11 +90,10 @@ export default function UseCases() {
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
             border: "1px solid rgba(255,255,255,0.85)",
-            minHeight: "640px",
           }}
         >
           {/* Slides */}
-          <div className="flex h-full" style={{ minHeight: "640px" }}>
+          <div className="flex md:min-h-160">
             {/* Left — image */}
             <div className="hidden md:block w-1/2 relative overflow-hidden">
               {useCases.map((u, i) => (
@@ -109,8 +108,8 @@ export default function UseCases() {
             </div>
 
             {/* Right — content */}
-            <div className="w-full md:w-1/2 flex flex-col justify-between p-10 md:p-14">
-              <div className="flex flex-col gap-6 pr-9">
+            <div className="w-full md:w-1/2 flex flex-col justify-between p-7 md:p-14">
+              <div className="flex flex-col gap-6 md:pr-9">
                 {/* Emoji + tag */}
                 <div className="flex items-center gap-3">
                   <span className="text-4xl">{uc.emoji}</span>
