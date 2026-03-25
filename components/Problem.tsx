@@ -21,7 +21,13 @@ const painPoints = [
 
 export default function Problem() {
   return (
-    <section data-navbar-theme="light" className="relative py-28 md:py-40 px-6">
+    <section data-navbar-theme="light" className="relative py-28 md:py-40 px-6"       style={{
+        backgroundImage: "url('/images/bg-solution-.avif')",
+        backgroundSize: "cover",
+        backgroundPosition: "center bottom",
+        backgroundRepeat: "no-repeat",
+        backgroundColor: "#ffffff",
+      }}>
       <div className="container-max">
         {/* Section header */}
         <div className="max-w-2xl mx-auto text-center mb-14">

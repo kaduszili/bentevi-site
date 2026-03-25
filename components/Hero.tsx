@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section
       data-navbar-theme="dark"
-      className="relative min-h-screen overflow-hidden flex items-center border-0 md:border-4 border-white md:rounded-[60px] rounded-none"
+      className="relative min-h-screen overflow-hidden flex items-center border-0 md:border-4 border-white md:rounded-[40px] rounded-none"
       style={{
         background:
           "linear-gradient(135deg, #000000 0%, #000000 30%, #000000 65%, #000000 100%)",
@@ -51,8 +51,7 @@ export default function Hero() {
 
           {/* Subtext */}
           <p className="text-2xl font-extralight text-white leading max-w-2xl">
-            Train an AI Assistant and let it answer your customer's questions without hallucinations or off-brand
-            responses.
+            Train an AI assistant using your content. Your audience get accurate answers, you get full control over the responses.
           </p>
 
           {/* CTAs */}
@@ -60,14 +59,14 @@ export default function Hero() {
             <a href="#waitlist" className="btn-white-hero h-12 px-7 text-base">
               Join Early Access
             </a>
-            <a href="#how-it-works" className="btn-outline-hero h-12 px-7 text-base">
+            <a href="#value-proposition" className="btn-outline-hero h-12 px-7 text-base">
               See how it works
             </a>
           </div>
 
           {/* Social proof note */}
           <p className="text-sm text-white/50">
-            No credit card required · Free to join the waitlist
+            No credit card required · Free waitlist
           </p>
         </div>
 

@@ -4,42 +4,35 @@ const features = [
     image: "/images/feature-card-1.jpg",
     title: "Knowledge sandbox",
     description:
-      "The assistant answers only from the sources you define. Nothing more, nothing less.",
+      "The assistant answers only from the sources you provide.",
   },
   {
     emoji: "✅",
     image: "/images/feature-card-2.jpg",
     title: "Zero hallucinations",
     description:
-      "When the answer isn't in your content, Bentevi says so — it never invents information.",
+      "If the answer isn’t in your content, the assistant says so.",
   },
   {
     emoji: "⚡",
     image: "/images/feature-card-3.jpg",
     title: "Easy embedding",
     description:
-      "One script tag is all it takes to add your assistant to any website or web app.",
+      "Add the assistant to any site with a single script.",
   },
   {
     emoji: "💬",
     image: "/images/feature-card-4.jpg",
     title: "Website chat",
     description:
-      "A clean, customizable chat widget that fits your site's design and branding.",
+      "A clean chat interface that matches your website.",
   },
   {
     emoji: "📊",
     image: "/images/feature-card-5.jpg",
     title: "Conversation dashboard",
     description:
-      "Review all conversations, spot gaps in your knowledge base, and improve your content.",
-  },
-  {
-    emoji: "🤝",
-    image: "/images/feature-card-6.jpg",
-    title: "Human handoff",
-    description:
-      "When a question needs a human, Bentevi can transfer the conversation seamlessly.",
+      "Review questions, see what users ask, and improve your knowledge base.",
   },
 ];
 
@@ -74,17 +67,13 @@ const FeatureCard = ({ feature }: { feature: typeof features[0] }) => (
 
 export default function Features() {
   return (
-    <section id="features" data-navbar-theme="light" className="section-padding">
+    <section id="features" data-navbar-theme="light" className="py-28 md:pt-38 px-6 relative">
       <div className="container-max">
         {/* Section header */}
         <div className="max-w-3xl mb-14">
           <h2 className="text-3xl md:text-6xl/16 font-light text-gray-900 mb-6">
             Everything you need to run a reliable AI assistant.
           </h2>
-          <p className="text-gray-600 font-extralight text-2xl/8">
-              Bentevi creates a sealed knowledge base — a
-              sandbox — and the assistant answers only from inside it.
-            </p>
         </div>
 
         {/* Bento grid — 3 cols, 4 rows */}
@@ -110,15 +99,7 @@ export default function Features() {
           {/* Row 3: card / [image-2 cont.] / card */}
           <div className="col-span-1"><FeatureCard feature={features[2]} /></div>
           <div className="col-span-1"><FeatureCard feature={features[3]} /></div>
-
-          {/* Row 4: card / card / image-3 */}
           <div className="col-span-1"><FeatureCard feature={features[4]} /></div>
-          <div className="col-span-3"><FeatureCard feature={features[5]} /></div>
-
-          {/* Row 5: image-3 */}
-           {/* <div className="col-span-3 rounded-2xl overflow-hidden">
-            <img src="/images/feature-img-3.jpg" alt="Feature" className="w-full h-full object-cover" />
-          </div> */}
         </div>
       </div>
     </section>

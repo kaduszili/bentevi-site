@@ -72,14 +72,7 @@ export default function UseCases() {
     <section
       id="use-cases"
       data-navbar-theme="light"
-      className="py-28 md:py-38 px-6 relative"
-      style={{
-        backgroundImage: "url('/images/yellow-bg-.svg')",
-        backgroundSize: "cover",
-        backgroundPosition: "top center",
-        backgroundRepeat: "no-repeat",
-        backgroundColor: "#ffffff",
-      }}
+      className="py-28 md:pb-38 px-6 relative"
     >
       <div className="container-max mx-auto relative z-10">
         {/* Section header */}
@@ -97,11 +90,11 @@ export default function UseCases() {
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
             border: "1px solid rgba(255,255,255,0.85)",
-            minHeight: "480px",
+            minHeight: "640px",
           }}
         >
           {/* Slides */}
-          <div className="flex h-full" style={{ minHeight: "480px" }}>
+          <div className="flex h-full" style={{ minHeight: "640px" }}>
             {/* Left — image */}
             <div className="hidden md:block w-1/2 relative overflow-hidden">
               {useCases.map((u, i) => (
