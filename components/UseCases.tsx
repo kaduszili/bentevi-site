@@ -72,7 +72,7 @@ export default function UseCases() {
     <section
       id="use-cases"
       data-navbar-theme="light"
-      className="py-28 md:pb-38 px-6 relative"
+      className="py-16 md:pb-38 px-6 relative"
     >
       <div className="container-max mx-auto relative z-10">
         {/* Section header */}

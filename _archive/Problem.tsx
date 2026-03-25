@@ -1,18 +1,21 @@
 const painPoints = [
   {
     image: "/images/problem-1.jpg",
+    mobileImage: "/images/mobile-problem-1.jpg",
     title: "You set the rules",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
   },
   {
     image: "/images/problem-2.jpg",
+    mobileImage: "/images/mobile-problem-2.jpg",
     title: "AI Assistant handle the content",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
   },
   {
     image: "/images/problem-3.jpg",
+    mobileImage: "/images/mobile-problem-3.jpg",
     title: "Customers get accurate and on-brand answers",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
@@ -47,7 +50,10 @@ export default function Problem() {
 
           {/* Row 1: img1 (wide) + text1 */}
           <div className="col-span-1 md:col-span-2 rounded-4xl overflow-hidden min-h-70 md:min-h-0" style={{ backgroundColor: "#F2F1E8" }}>
-            <img src={painPoints[0].image} alt={painPoints[0].title} className="w-full h-full object-cover" />
+            <picture className="w-full h-full">
+              <source media="(max-width: 767px)" srcSet={painPoints[0].mobileImage} />
+              <img src={painPoints[0].image} alt={painPoints[0].title} className="w-full h-full object-cover" />
+            </picture>
           </div>
           <div className="col-span-1 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#D6EFD2" }}>
             <h3 className="font-light text-[#2C4D26] text-3xl md:text-4xl/9 mb-2">{painPoints[0].title}</h3>
@@ -60,7 +66,10 @@ export default function Problem() {
             <p className="text-gray-900 text-base md:text-lg/6">{painPoints[1].description}</p>
           </div>
           <div className="col-span-1 md:col-span-2 rounded-4xl overflow-hidden min-h-70 md:min-h-0" style={{ backgroundColor: "#F2F1E8" }}>
-            <img src={painPoints[1].image} alt={painPoints[1].title} className="w-full h-full object-cover" />
+            <picture className="w-full h-full">
+              <source media="(max-width: 767px)" srcSet={painPoints[1].mobileImage} />
+              <img src={painPoints[1].image} alt={painPoints[1].title} className="w-full h-full object-cover" />
+            </picture>
           </div>
 
           {/* Row 3: img3 + text3 (wide) */}
@@ -69,7 +78,10 @@ export default function Problem() {
             <p className="text-gray-900 text-base md:text-lg/6">{painPoints[2].description}</p>
           </div>
           <div className="col-span-1 rounded-4xl overflow-hidden min-h-70 md:min-h-0" style={{ backgroundColor: "#F2F1E8" }}>
-            <img src={painPoints[2].image} alt={painPoints[2].title} className="w-full h-full object-cover" />
+            <picture className="w-full h-full">
+              <source media="(max-width: 767px)" srcSet={painPoints[2].mobileImage} />
+              <img src={painPoints[2].image} alt={painPoints[2].title} className="w-full h-full object-cover" />
+            </picture>
           </div>
           <div className="col-span-1 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#EDEAD6" }}>
             <h3 className="font-light text-[#575440] text-3xl md:text-4xl/9 mb-2">{painPoints[2].title}</h3>

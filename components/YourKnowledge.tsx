@@ -11,7 +11,7 @@ export default function YourKnowledge() {
   return (
     <section
       data-navbar-theme="light"
-      className="relative py-28 md:py-60 px-6"
+      className="relative py-16 md:py-60 px-6"
       style={{ backgroundColor: "#ffffff" }}
     >
       {/* Background image at 0.5 opacity */}

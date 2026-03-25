@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
+import ChatBubbleTheme from "@/components/ChatBubbleTheme";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -34,7 +35,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={dmSans.variable}>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <ChatBubbleTheme />
+        <script src="https://djqxhtxvsjepacnlzjsl.supabase.co/functions/v1/widget?id=06c385ed-baf8-4526-98ca-14e07451f392" />
+      </body>
     </html>
   );
 }
