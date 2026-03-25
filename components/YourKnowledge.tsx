@@ -26,7 +26,7 @@ export default function YourKnowledge() {
               Ready from a simple welcome message to optimized sales.
             </h2>
             <p className="text-gray-600 font-extralight text-2xl/8">
-              Bentevi runs inside a sealed knowledge base. The assistant answers only from the content you provide.
+              Bentevi runs inside a sealed knowledge base with live connectors defined by you. The assistant answers only from the content you provide.
             </p>
             <ul className="flex flex-col gap-3 mt-2">
               {proofPoints.map((point) => (

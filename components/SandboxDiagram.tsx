@@ -85,14 +85,14 @@ export default function SandboxDiagram() {
           Your content
         </p>
         <div className="flex flex-wrap gap-2 mb-2">
-          {["PDF docs", "Articles", "FAQ pages", "Text files"].map((t) => (
+          {["Docs", "External Files", "FAQ pages", "Text files"].map((t) => (
             <span key={t} className="text-xs font-medium px-2.5 py-1 rounded-full bg-white text-gray-600" style={{ border: "1px solid #c4d9be" }}>
               {t}
             </span>
           ))}
         </div>
         <div className="flex flex-wrap gap-2">
-          {["Pages", "Product specs", "Internal docs"].map((t) => (
+          {["Web pages", "Product specs", "Internal docs"].map((t) => (
             <span key={t} className="text-xs font-medium px-2.5 py-1 rounded-full bg-white text-gray-600" style={{ border: "1px solid #c4d9be" }}>
               {t}
             </span>

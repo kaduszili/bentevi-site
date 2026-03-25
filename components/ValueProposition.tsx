@@ -1,27 +1,27 @@
 const painPoints = [
   {
     image: "/images/problem-1.jpg",
-    title: "You define the knowledge",
+    title: "You define the knowledge base",
     description:
-      "Upload documents, help pages, or text. Decide exactly what the assistant can use to answer questions.",
+      "Upload documents, pages, or text. Decide exactly which live connector the assistant can read to answer questions.",
   },
   {
     image: "/images/problem-2.jpg",
     title: "The assistant handles the conversation",
     description:
-      "Bentevi reads your content, builds a knowledge base, and answers questions instantly.",
+      "Bentevi stays consistent with your knowledge base, brand voice, and policies. No more off-brand or hallucinations.",
   },
   {
     image: "/images/problem-3.jpg",
-    title: "Guardrails to keep you in control",
+    title: "Automate actions based on visitor's intention",
     description:
-      "Responses stay consistent with your documentation, brand voice, and policies. No more off-brand or inaccurate AI replies.",
+      "Bentevi uses the power of AI to identify visitor's intention, triggers actions based on semantic topics defined by you.",
   },
     {
     image: "/images/problem-4.jpg",
-    title: "Your customer support team gets a boost",
+    title: "Your customer experience gets a boost",
     description:
-      "With Bentevi handling common questions, your support team can focus on complex issues and providing exceptional service — while customers get instant help 24/7.",
+      "With Bentevi handling common questions, your customers get a low friction experience with instant help 24/7. So your team can focus on high-impact work.",
   },
 ];
 
@@ -32,53 +32,52 @@ export default function ValueProposition() {
         {/* Section header */}
         <div className="max-w-2xl mx-auto text-center mb-14">
           <h2
-            className="text-6xl font-light mb-20 block tracking-tight"
+            className="text-3xl md:text-6xl font-light mb-10 md:mb-20 block tracking-tight"
             style={{ color: "#000" }}
           >
             A smart conversational AI assistant
           </h2>
-          <p className="text-2xl font-extralight mb-20 block tracking-tight"
+          <p className="text-lg md:text-2xl font-extralight mb-10 md:mb-20 block tracking-tight"
             style={{ color: "#000" }}
           >Powered by large langague models, that understands your customers and reply them with accuracy and empathy.</p>
         </div>
 
         {/* Bento grid */}
-        <div className="grid grid-cols-6 gap-4" style={{ gridAutoRows: "400px" }}>
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:auto-rows-[400px]">
 
           {/* Row 1: img1 (wide) + text1 */}
-          <div className="col-span-4 rounded-4xl overflow-hidden" style={{ backgroundColor: "#D6EFD2", minHeight: "200px" }}>
+          <div className="col-span-1 md:col-span-4 rounded-4xl overflow-hidden min-h-70 md:min-h-0" style={{ backgroundColor: "#D6EFD2" }}>
             <img src={painPoints[0].image} alt={painPoints[0].title} className="w-full h-full object-cover" />
           </div>
-          <div className="col-span-2 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#D6EFD2" }}>
-            <h3 className="font-light text-[#2C4D26] text-4xl/9 mb-2">{painPoints[0].title}</h3>
-            <p className="text-gray-900 text-lg/6">{painPoints[0].description}</p>
+          <div className="col-span-1 md:col-span-2 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#D6EFD2" }}>
+            <h3 className="font-light text-[#2C4D26] text-3xl md:text-4xl/9 mb-2">{painPoints[0].title}</h3>
+            <p className="text-gray-900 text-base md:text-lg/6">{painPoints[0].description}</p>
           </div>
 
           {/* Row 2: text2 + img2 (wide) */}
-          <div className="col-span-2 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#F9E798" }}>
-            <h3 className="font-light text-[#302807] text-4xl/9 mb-2">{painPoints[1].title}</h3>
-            <p className="text-gray-900 text-lg/6">{painPoints[1].description}</p>
+          <div className="col-span-1 md:col-span-2 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#F9E798" }}>
+            <h3 className="font-light text-[#302807] text-3xl md:text-4xl/9 mb-2">{painPoints[1].title}</h3>
+            <p className="text-gray-900 text-base md:text-lg/6">{painPoints[1].description}</p>
           </div>
-          <div className="col-span-4 rounded-4xl overflow-hidden" style={{ backgroundColor: "#F2F1E8", minHeight: "200px" }}>
+          <div className="col-span-1 md:col-span-4 rounded-4xl overflow-hidden min-h-70 md:min-h-0" style={{ backgroundColor: "#F2F1E8" }}>
             <img src={painPoints[1].image} alt={painPoints[1].title} className="w-full h-full object-cover" />
           </div>
 
           {/* Row 3: img3 + text3 (wide) */}
-                    <div className="col-span-4 rounded-4xl overflow-hidden" style={{ backgroundColor: "#F2F1E8", minHeight: "200px" }}>
+          <div className="col-span-1 md:col-span-4 rounded-4xl overflow-hidden min-h-70 md:min-h-0" style={{ backgroundColor: "#F2F1E8" }}>
             <img src={painPoints[2].image} alt={painPoints[2].title} className="w-full h-full object-cover" />
           </div>
-          <div className="col-span-2 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#CEF3EF" }}>
-            <h3 className="font-light text-[#1D4742] text-4xl/9 mb-2">{painPoints[2].title}</h3>
-            <p className="text-gray-900 text-lg/6">{painPoints[2].description}</p>
+          <div className="col-span-1 md:col-span-2 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#CEF3EF" }}>
+            <h3 className="font-light text-[#1D4742] text-3xl md:text-4xl/9 mb-2">{painPoints[2].title}</h3>
+            <p className="text-gray-900 text-base md:text-lg/6">{painPoints[2].description}</p>
           </div>
-           <div className="col-span-2 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#EDEAD6" }}>
-            <h3 className="font-light text-[#575440] text-4xl/9 mb-2">{painPoints[3].title}</h3>
-            <p className="text-gray-900 text-lg/6">{painPoints[3].description}</p>
+          <div className="col-span-1 md:col-span-2 rounded-4xl p-8 flex flex-col justify-end" style={{ backgroundColor: "#EDEAD6" }}>
+            <h3 className="font-light text-[#575440] text-3xl md:text-4xl/9 mb-2">{painPoints[3].title}</h3>
+            <p className="text-gray-900 text-base md:text-lg/6">{painPoints[3].description}</p>
           </div>
-          <div className="col-span-4 rounded-4xl overflow-hidden" style={{ backgroundColor: "#F2F1E8", minHeight: "200px" }}>
+          <div className="col-span-1 md:col-span-4 rounded-4xl overflow-hidden min-h-70 md:min-h-0" style={{ backgroundColor: "#F2F1E8" }}>
             <img src={painPoints[3].image} alt={painPoints[3].title} className="w-full h-full object-cover" />
           </div>
-
 
         </div>
       </div>
